@@ -1,0 +1,299 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Blueprint Aesthetic Theme - Royal Blue & Technical White */
+  --primary: #1e3a8a; /* Royal blue */
+  --primary-foreground: #f0f9ff; /* White */
+  --sidebar-primary: #1e40af;
+  --sidebar-primary-foreground: #f0f9ff;
+  --chart-1: #3b82f6;
+  --chart-2: #1e40af;
+  --chart-3: #1e3a8a;
+  --chart-4: #1e40af;
+  --chart-5: #0c4a6e;
+  --radius: 0.25rem;
+  --background: #0f172a; /* Deep royal blue */
+  --foreground: #f8fafc; /* Technical white */
+  --card: #1e293b; /* Slightly lighter blue */
+  --card-foreground: #f0f9ff;
+  --popover: #1e293b;
+  --popover-foreground: #f0f9ff;
+  --secondary: #334155;
+  --secondary-foreground: #f0f9ff;
+  --muted: #475569;
+  --muted-foreground: #cbd5e1;
+  --accent: #3b82f6; /* Bright blue accent */
+  --accent-foreground: #0f172a;
+  --destructive: #dc2626;
+  --destructive-foreground: #f8fafc;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: #3b82f6;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f0f9ff;
+  --sidebar-accent: #3b82f6;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #334155;
+  --sidebar-ring: #3b82f6;
+  /* Warm accent colors for visual variety */
+  --copper: #b87333;
+  --copper-light: #d4a574;
+  --gold: #d4af37;
+  --warm-gray: #9ca3af;
+  --warm-white: #faf8f3;
+}
+
+.dark {
+  --primary: #1e3a8a;
+  --primary-foreground: #f0f9ff;
+  --sidebar-primary: #1e40af;
+  --sidebar-primary-foreground: #f0f9ff;
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f0f9ff;
+  --popover: #1e293b;
+  --popover-foreground: #f0f9ff;
+  --secondary: #334155;
+  --secondary-foreground: #f0f9ff;
+  --muted: #475569;
+  --muted-foreground: #cbd5e1;
+  --accent: #3b82f6;
+  --accent-foreground: #0f172a;
+  --destructive: #dc2626;
+  --destructive-foreground: #f8fafc;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: #3b82f6;
+  --chart-1: #3b82f6;
+  --chart-2: #1e40af;
+  --chart-3: #1e3a8a;
+  --chart-4: #1e40af;
+  --chart-5: #0c4a6e;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f0f9ff;
+  --sidebar-accent: #3b82f6;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #334155;
+  --sidebar-ring: #3b82f6;
+  /* Warm accent colors for visual variety */
+  --copper: #b87333;
+  --copper-light: #d4a574;
+  --gold: #d4af37;
+  --warm-gray: #9ca3af;
+  --warm-white: #faf8f3;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer components {
+  /* Blueprint Grid Pattern Background */
+  .blueprint-grid {
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  /* Blueprint Technical Line Styling */
+  .blueprint-frame {
+    @apply border border-accent/20 relative;
+  }
+  
+  .blueprint-frame::before {
+    content: '';
+    @apply absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent/40;
+  }
+  
+  .blueprint-frame::after {
+    content: '';
+    @apply absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-accent/40;
+  }
+  
+  /* Service Card with Blueprint Styling */
+  .service-card {
+    @apply bg-card border border-accent/30 rounded-sm p-6 relative transition-all duration-300 hover:border-accent/60 hover:shadow-lg hover:shadow-accent/20;
+  }
+  
+  .service-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none;
+  }
+  
+  /* Technical Dimension Marker */
+  .dimension-marker {
+    @apply text-xs font-mono text-accent/60 tracking-wider;
+  }
+  
+  /* Blueprint Section Divider */
+  .blueprint-divider {
+    @apply my-8 relative;
+  }
+  
+  .blueprint-divider::before {
+    content: '';
+    @apply absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent;
+  }
+  
+  /* Custom container utility that centers content and adds responsive padding */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+  
+  /* Button Styling for Blueprint Theme */
+  .btn-primary {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90 font-semibold px-6 py-3 rounded-sm transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-card border border-accent/40 text-foreground hover:border-accent/70 hover:bg-card/80 font-semibold px-6 py-3 rounded-sm transition-all duration-200;
+  }
+  
+  /* Form Input Styling */
+  .form-input {
+    @apply bg-input border border-accent/30 rounded-sm px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-all duration-200 cursor-text;
+  }
+  
+  .form-input:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  
+  /* Technical Label */
+  .tech-label {
+    @apply text-sm font-mono uppercase tracking-wider text-muted-foreground;
+  }
+  
+  /* Image Overlay Gradient */
+  .image-overlay {
+    @apply relative overflow-hidden;
+  }
+  
+  .image-overlay::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent;
+  }
+  
+  /* Warm Accent Utilities */
+  .accent-copper {
+    @apply text-[#b87333];
+  }
+  
+  .accent-gold {
+    @apply text-[#d4af37];
+  }
+  
+  .border-copper {
+    @apply border-[#b87333];
+  }
+  
+  .bg-warm-white {
+    @apply bg-[#faf8f3];
+  }
+}
+
+/* Google Fonts Import for Professional Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
